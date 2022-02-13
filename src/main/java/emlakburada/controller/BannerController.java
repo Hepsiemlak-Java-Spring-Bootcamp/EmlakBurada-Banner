@@ -16,18 +16,18 @@ import emlakburada.service.BannerService;
 
 @RestController
 public class BannerController {
-	
-	
-	private BannerService service = new BannerService();
-	
+
+	@Autowired
+	private BannerService service;
+
 	@GetMapping(value = "/banners")
-	public ResponseEntity<List<BannerResponse>> getAllBanners(){
-		return new ResponseEntity<>(service.getAllBanners(),HttpStatus.OK);
+	public ResponseEntity<List<BannerResponse>> getAllBanners() {
+		return new ResponseEntity<>(service.getAllBanners(), HttpStatus.OK);
 	}
-	
+
 	@PostMapping(value = "/banners")
-	public ResponseEntity<BannerResponse> saveBanner(@RequestBody BannerRequest request){
-		return new ResponseEntity<>(service.saveBanner(request),HttpStatus.OK);
+	public ResponseEntity<BannerResponse> saveBanner(@RequestBody BannerRequest request) {
+		return new ResponseEntity<>(service.saveBanner(request), HttpStatus.OK);
 	}
 
 }
