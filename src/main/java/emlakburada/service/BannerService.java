@@ -10,8 +10,10 @@ import emlakburada.dto.request.BannerRequest;
 import emlakburada.dto.response.BannerResponse;
 import emlakburada.model.Banner;
 import emlakburada.repository.BannerRepository;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class BannerService {
 
 	@Autowired
@@ -27,6 +29,7 @@ public class BannerService {
 
 	public BannerResponse saveBanner(BannerRequest request) {
 		Banner banner = repository.saveBanner(convertToBanner(request));
+		log.info("banner saved: " + banner.toString());
 		return convertToBannerResponse(banner);
 	}
 
